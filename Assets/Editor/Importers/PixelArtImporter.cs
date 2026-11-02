@@ -30,7 +30,9 @@ namespace MobileRpg.EditorTools
             settings.spriteMeshType = SpriteMeshType.FullRect;
             settings.spriteAlignment = (int)SpriteAlignment.Center;
 
-            bool bottomPivot = assetPath.Contains("/Player/") || assetPath.EndsWith("dummy.png");
+            bool bottomPivot = assetPath.Contains("/Player/") || assetPath.Contains("/Trees/")
+                || assetPath.Contains("/Plants/") || assetPath.Contains("/Ores/")
+                || assetPath.Contains("/Enemies/") || assetPath.EndsWith("dummy.png");
             if (bottomPivot) settings.spriteAlignment = (int)SpriteAlignment.BottomCenter;
 
             importer.SetTextureSettings(settings);

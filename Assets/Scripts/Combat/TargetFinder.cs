@@ -12,7 +12,7 @@ namespace MobileRpg
         /// </summary>
         /// <param name="origin">World position to search from.</param>
         /// <param name="range">Search radius.</param>
-        public static Transform FindNearest(Vector2 origin, float range)
+        public static Transform FindNearest(Vector2 origin, float range, Transform ignoredRoot = null)
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(origin, range);
             Transform best = null;
@@ -20,6 +20,8 @@ namespace MobileRpg
 
             for (int i = 0; i < colliders.Length; i++)
             {
+                if (ignoredRoot != null && colliders[i].transform.IsChildOf(ignoredRoot)) continue;
+
                 IDamageable damageable = colliders[i].GetComponentInParent<IDamageable>();
                 if (damageable == null || !damageable.IsAlive) continue;
 

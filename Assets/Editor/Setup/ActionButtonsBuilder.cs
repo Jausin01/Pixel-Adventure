@@ -4,51 +4,73 @@ using UnityEngine.UI;
 namespace MobileRpg.EditorTools
 {
     /// <summary>
-    /// Creates the attack, sword color and weapon swap buttons on the right side of the screen.
+    /// Creates the right-side controls: a large attack button in the bottom-right corner, four skill slots
+    /// in an arc around it.
     /// </summary>
     public static class ActionButtonsBuilder
     {
-        // Skin indexes (into the sword skin list) offered as quick buttons: silver, blue, red, green.
-        private static readonly int[] SkinIndexes = { 0, 1, 2, 4 };
-        private static readonly Color[] SkinColors =
-        {
-            new Color(0.85f, 0.85f, 0.9f), new Color(0.4f, 0.6f, 1f), new Color(1f, 0.4f, 0.4f), new Color(0.4f, 0.9f, 0.5f)
-        };
-        private static readonly Vector2[] SkinPositions =
-        {
-            new Vector2(-335f, 105f), new Vector2(-305f, 235f), new Vector2(-215f, 325f), new Vector2(-90f, 355f)
-        };
+        private const float CornerMargin = 30f;
+        private const float AttackSize = 170f;
+        private const float SkillSize = 88f;
+        private const float SkillGap = 16f;
+
+        // Angles (degrees, 0 = right, 90 = up) of the skill slots around the attack button.
+        private static readonly float[] SkillAngles = { 90f, 125f, 160f, 195f };
 
         /// <summary>Builds all buttons.</summary>
-        public static void Build(Transform canvas, WeaponHolder weapons, SwordVisual sword)
+        public static void Build(Transform parent, ActionRouter router, NearbyHarvestDetector detector)
         {
             Sprite circle = SpriteLoader.Load("UI/button_circle");
+
+            Vector2 attackCenter = BuildAttackButton(parent, circle, router, detector);
+            BuildSkillSlots(parent, circle, attackCenter);
+        }
+
+        private static Vector2 BuildAttackButton(Transform parent, Sprite circle, ActionRouter router, NearbyHarvestDetector detector)
+        {
             Vector2 bottomRight = new Vector2(1f, 0f);
-            Vector2 topRight = new Vector2(1f, 1f);
-
-            Image attack = UiFactory.CreateImage("Attack Button", canvas, circle, bottomRight, new Vector2(-135f, 135f), new Vector2(190f, 190f));
+            Image attack = UiFactory.CreateImage("Attack Button", parent, circle, bottomRight,
+                new Vector2(-CornerMargin, CornerMargin), new Vector2(AttackSize, AttackSize));
             attack.color = new Color(1f, 0.55f, 0.45f, 0.85f);
-            attack.gameObject.AddComponent<AttackButton>().weapons = weapons;
+            attack.gameObject.AddComponent<AttackButton>().router = router;
             attack.gameObject.AddComponent<PressScaleFeedback>();
+            AddToolIcon(attack, detector);
 
-            for (int i = 0; i < SkinIndexes.Length; i++)
+            // Center of the button measured from the bottom-right corner of the parent.
+            float half = AttackSize / 2f;
+            return new Vector2(-CornerMargin - half, CornerMargin + half);
+        }
+
+        private static void BuildSkillSlots(Transform parent, Sprite circle, Vector2 attackCenter)
+        {
+            float radius = AttackSize / 2f + SkillSize / 2f + SkillGap;
+
+            for (int i = 0; i < SkillAngles.Length; i++)
             {
-                Image button = UiFactory.CreateImage("Skin Button " + i, canvas, circle, bottomRight, SkinPositions[i], new Vector2(110f, 110f));
-                button.color = SkinColors[i];
-                SwordSkinButton action = button.gameObject.AddComponent<SwordSkinButton>();
-                action.sword = sword;
-                action.skinIndex = SkinIndexes[i];
-                button.gameObject.AddComponent<PressScaleFeedback>();
+                float angle = SkillAngles[i] * Mathf.Deg2Rad;
+                Vector2 center = attackCenter + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+
+                // The slot's pivot is its bottom-right corner, so offset from the center.
+                Vector2 corner = center + new Vector2(SkillSize / 2f, -SkillSize / 2f);
+                Image slot = UiFactory.CreateImage("Skill Slot " + (i + 1), parent, circle, new Vector2(1f, 0f), corner, new Vector2(SkillSize, SkillSize));
+                slot.color = new Color(1f, 1f, 1f, 0.45f);
+                slot.raycastTarget = false;
             }
+        }
 
-            Image swap = UiFactory.CreateImage("Swap Weapon Button", canvas, circle, topRight, new Vector2(-95f, -95f), new Vector2(120f, 120f));
-            swap.color = new Color(1f, 1f, 1f, 0.85f);
-            swap.gameObject.AddComponent<SwapWeaponButton>().weapons = weapons;
-            swap.gameObject.AddComponent<PressScaleFeedback>();
-
-            Image icon = UiFactory.CreateImage("Icon", swap.transform, SpriteLoader.Load("Bow/bow_idle"), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(80f, 80f));
+        private static void AddToolIcon(Image button, NearbyHarvestDetector detector)
+        {
+            Image icon = UiFactory.CreateImage("Tool Icon", button.transform, null, new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(100f, 100f));
             icon.raycastTarget = false;
             icon.preserveAspect = true;
+            icon.enabled = false;
+
+            ActionButtonIcon iconControl = button.gameObject.AddComponent<ActionButtonIcon>();
+            iconControl.detector = detector;
+            iconControl.icon = icon;
+            iconControl.axeIcon = SpriteLoader.Load("Tools/axe_0");
+            iconControl.pickaxeIcon = SpriteLoader.Load("Tools/pickaxe_0");
+            iconControl.shovelIcon = SpriteLoader.Load("Tools/shovel_0");
         }
     }
 }

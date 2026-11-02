@@ -15,6 +15,7 @@ namespace MobileRpg.EditorTools
             SpriteRenderer renderer = player.AddComponent<SpriteRenderer>();
             renderer.sprite = SpriteLoader.Load("Player/idle_down");
             renderer.sharedMaterial = material;
+            renderer.spriteSortPoint = SpriteSortPoint.Pivot; // sort by the feet, not the sprite center
 
             Rigidbody2D body = player.AddComponent<Rigidbody2D>();
             body.interpolation = RigidbodyInterpolation2D.Interpolate;

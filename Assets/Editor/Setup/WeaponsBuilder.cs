@@ -19,9 +19,6 @@ namespace MobileRpg.EditorTools
             GameObject holderObject = new GameObject("Weapons");
             WeaponHolder holder = holderObject.AddComponent<WeaponHolder>();
             holder.weapons = new[] { sword, bow };
-
-            WeaponKeyboardInput keyboard = holderObject.AddComponent<WeaponKeyboardInput>();
-            keyboard.holder = holder;
             return holder;
         }
     }

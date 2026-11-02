@@ -6,15 +6,16 @@ using UnityEngine.InputSystem;
 namespace MobileRpg
 {
     /// <summary>
-    /// Desktop testing helper: Space or J attacks, Q or Tab swaps weapons.
+    /// Desktop testing helper: Space or J performs the main action (attack or tool), Q or Tab swaps weapons.
     /// </summary>
     public class WeaponKeyboardInput : MonoBehaviour
     {
         public WeaponHolder holder;
+        public ActionRouter router;
 
         private void Update()
         {
-            if (AttackPressed()) holder.Attack();
+            if (AttackPressed()) router.Perform();
             if (SwapPressed()) holder.SwapNext();
         }
 

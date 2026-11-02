@@ -9,8 +9,8 @@ namespace MobileRpg
     [RequireComponent(typeof(Health))]
     public class DeathVisibility : MonoBehaviour
     {
-        [Tooltip("Sprite to hide. Found automatically in children when left empty.")]
-        public SpriteRenderer target;
+        [Tooltip("Sprites to hide. The object's own sprite is used when left empty.")]
+        public SpriteRenderer[] renderers;
 
         [Tooltip("Colliders to disable while dead. Found automatically in children when left empty.")]
         public Collider2D[] colliders;
@@ -20,7 +20,7 @@ namespace MobileRpg
         private void Awake()
         {
             health = GetComponent<Health>();
-            if (target == null) target = GetComponentInChildren<SpriteRenderer>();
+            if (renderers == null || renderers.Length == 0) renderers = new[] { GetComponent<SpriteRenderer>() };
             if (colliders == null || colliders.Length == 0) colliders = GetComponentsInChildren<Collider2D>();
         }
 
@@ -48,7 +48,7 @@ namespace MobileRpg
 
         private void SetVisible(bool visible)
         {
-            target.enabled = visible;
+            for (int i = 0; i < renderers.Length; i++) renderers[i].enabled = visible;
             for (int i = 0; i < colliders.Length; i++) colliders[i].enabled = visible;
         }
     }

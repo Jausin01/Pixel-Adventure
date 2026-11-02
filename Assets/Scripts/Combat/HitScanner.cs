@@ -24,13 +24,15 @@ namespace MobileRpg
         /// <param name="radius">Circle radius.</param>
         /// <param name="damage">Damage to apply.</param>
         /// <returns>True if at least one new target was hit.</returns>
-        public bool Scan(Vector2 center, float radius, float damage)
+        public bool Scan(Vector2 center, float radius, float damage, Transform ignoredRoot = null)
         {
             bool hitAny = false;
             Collider2D[] colliders = Physics2D.OverlapCircleAll(center, radius);
 
             for (int i = 0; i < colliders.Length; i++)
             {
+                if (ignoredRoot != null && colliders[i].transform.IsChildOf(ignoredRoot)) continue;
+
                 IDamageable damageable = colliders[i].GetComponentInParent<IDamageable>();
                 if (damageable == null || !damageable.IsAlive || alreadyHit.Contains(damageable)) continue;
 

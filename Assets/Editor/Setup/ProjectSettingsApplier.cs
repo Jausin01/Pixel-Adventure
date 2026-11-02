@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MobileRpg.EditorTools
 {
@@ -25,8 +24,7 @@ namespace MobileRpg.EditorTools
             PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
 
             // Sprites with a lower Y draw in front, which gives top-down depth.
-            GraphicsSettings.transparencySortMode = TransparencySortMode.CustomAxis;
-            GraphicsSettings.transparencySortAxis = new Vector3(0f, 1f, 0f);
+            Renderer2DSortingConfigurator.Apply();
 
             AssetDatabase.SaveAssets();
         }

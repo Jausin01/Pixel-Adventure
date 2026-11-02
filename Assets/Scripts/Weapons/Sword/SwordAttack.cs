@@ -74,7 +74,7 @@ namespace MobileRpg
                 buffered = false;
 
                 Vector2 ownerPosition = owner.position;
-                Transform target = TargetFinder.FindNearest(ownerPosition, aimRange);
+                Transform target = TargetFinder.FindNearest(ownerPosition, aimRange, owner);
                 Vector2 forward = target != null ? ((Vector2)target.position - ownerPosition).normalized : facing.Vector;
                 if (forward.sqrMagnitude < 0.001f) forward = facing.Vector;
                 Vector2 center = target != null ? (Vector2)target.position : ownerPosition + forward * 1.6f;
@@ -113,7 +113,7 @@ namespace MobileRpg
 
         private void ScanForHits(float progress)
         {
-            bool hit = scanner.Scan(transform.position, hitRadius, damage);
+            bool hit = scanner.Scan(transform.position, hitRadius, damage, owner);
             if (hit && hitStop != null) hitStop.Trigger();
         }
     }

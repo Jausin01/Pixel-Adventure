@@ -19,6 +19,8 @@ namespace MobileRpg.EditorTools
             camera.orthographicSize = ProjectConstants.ReferenceHeight / 2f / ProjectConstants.PixelsPerUnit;
             camera.clearFlags = CameraClearFlags.SolidColor;
             camera.backgroundColor = Color.black;
+            camera.transparencySortMode = TransparencySortMode.CustomAxis;
+            camera.transparencySortAxis = Vector3.up;
 
             cameraObject.AddComponent<CameraFollow>().target = target;
             PixelPerfectConfigurator.Configure(cameraObject);

@@ -1,18 +1,16 @@
-using UnityEngine;
-
 namespace MobileRpg
 {
     /// <summary>
-    /// Touch button that makes the player's current weapon attack.
+    /// Touch button for the main action: attacks, or uses a tool when a resource is nearby.
     /// </summary>
     public class AttackButton : PointerDownAction
     {
-        public WeaponHolder weapons;
+        public ActionRouter router;
 
         /// <inheritdoc/>
         protected override void Execute()
         {
-            weapons.Attack();
+            router.Perform();
         }
     }
 }

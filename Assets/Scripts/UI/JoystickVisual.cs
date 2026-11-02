@@ -17,7 +17,7 @@ namespace MobileRpg
         public RectTransform knobRect;
 
         [Tooltip("Distance of the idle joystick from the bottom-left corner of the touch zone.")]
-        public Vector2 restMargin = new Vector2(230f, 210f);
+        public Vector2 restMargin = new Vector2(190f, 170f);
 
         private void Update()
         {

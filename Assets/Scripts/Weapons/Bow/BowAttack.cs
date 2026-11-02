@@ -68,7 +68,7 @@ namespace MobileRpg
             do
             {
                 buffered = false;
-                Transform target = TargetFinder.FindNearest(owner.position, aimRange);
+                Transform target = TargetFinder.FindNearest(owner.position, aimRange, owner);
 
                 AimAt(target);
                 visual.ShowNock();

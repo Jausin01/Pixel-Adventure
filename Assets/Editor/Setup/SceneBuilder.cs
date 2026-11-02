@@ -17,21 +17,37 @@ namespace MobileRpg.EditorTools
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
+            ItemCatalogBuilder.Build();
             Material material = SpriteMaterialProvider.GetOrCreate();
 
             WorldBuilder.Build(material);
             GameObject player = PlayerBuilder.Build(material);
+            InventoryBuilder.Attach(player);
+            StarterItemsBuilder.Attach(player);
+            PlayerVitalsBuilder.Attach(player);
 
             SwordVisual swordVisual;
             WeaponHolder weapons = WeaponsBuilder.Build(material, player, out swordVisual);
 
-            EnemyBuilder.Build(material);
+            ToolHolder tools = ToolsBuilder.Build(material, player);
+            ActionRouter router = ActionRouterBuilder.Build(player, weapons, tools);
+            KeyboardInputBuilder.Build(weapons, router);
+
+            ResourceWorldBuilder.Build(material);
+            OreWorldBuilder.Build(material);
+            TrainingDummyBuilder.Build(material);
+            MonsterWorldBuilder.Build(material, player.transform);
             CameraBuilder.Build(player.transform);
 
             Transform canvas = CanvasBuilder.Build();
+            PlayerHudBuilder.Build(canvas, player);
             VirtualJoystick joystick = JoystickBuilder.Build(canvas);
             player.GetComponent<PlayerMoveInput>().joystick = joystick;
-            ActionButtonsBuilder.Build(canvas, weapons, swordVisual);
+            ActionButtonsBuilder.Build(canvas, router, player.GetComponent<NearbyHarvestDetector>());
+
+            InventoryPanel inventoryScreen = InventoryScreenBuilder.Build(canvas, player.GetComponent<Inventory>(), player.GetComponent<ItemUser>());
+            MenuBuilder.Build(canvas, weapons, inventoryScreen);
+            inventoryScreen.transform.SetAsLastSibling(); // draw the inventory over every other control
             EventSystemBuilder.Build();
 
             DeviceSettingsBuilder.Build();
