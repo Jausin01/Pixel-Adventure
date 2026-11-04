@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f309e2df13848aca2bd152b8a7e0, type: 3}
+  m_Name: spear_rain
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.SkillDefinition
+  id: spear_rain
+  displayName: Spear Rain
+  description: Spears fall from the sky over the nearest enemy.
+  icon: {fileID: 21300000, guid: c78c8f3c678a60841a0bc12e3f3b24de, type: 3}
+  weaponClass: 2
+  type: 8
+  goldCost: 4
+  energyCost: 45
+  cooldown: 11
+  damageMultiplier: 1.1

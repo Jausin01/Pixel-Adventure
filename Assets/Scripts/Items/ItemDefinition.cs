@@ -32,12 +32,38 @@ namespace MobileRpg
         [Tooltip("The most of this item that can be carried in total (stackable items only).")]
         public int maxStack = 100;
 
+        [Header("Trade")]
+        [Tooltip("What the merchant pays for one of this item, in the currency. 0 means it cannot be sold.")]
+        public int sellValue;
+
+        [Tooltip("When several are dropped at once, spawn one pickup holding all of them (for the currency).")]
+        public bool dropAsSingleStack;
+
         [Header("Consumable effect")]
         [Tooltip("Health restored when used.")]
         public float healthRestored;
 
         [Tooltip("Energy restored when used.")]
         public float energyRestored;
+
+        [Header("Equipment")]
+        [Tooltip("Which equipment slot can wear this item. None for items that cannot be worn.")]
+        public EquipmentKind equipKind = EquipmentKind.None;
+
+        [Tooltip("Attack added while worn.")]
+        public float attackBonus;
+
+        [Tooltip("Defense added while worn.")]
+        public float defenseBonus;
+
+        [Tooltip("Maximum health added while worn.")]
+        public float maxHealthBonus;
+
+        [Tooltip("The natures a piece of this item can be born with. Leave empty for items that are not gear.")]
+        public GearNatureTable natures;
+
+        [Tooltip("Weapons with several looks (swords, axes, spears): index of the skin shown while equipped.")]
+        public int swordSkinIndex;
 
         /// <summary>True when several of this item share one inventory slot.</summary>
         public bool IsStackable { get { return category != ItemCategory.Equipment && category != ItemCategory.Weapon; } }

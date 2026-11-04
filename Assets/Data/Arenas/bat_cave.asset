@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7214187cb3895d4babfd40d37bb0f1f, type: 3}
+  m_Name: bat_cave
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.ArenaDefinition
+  id: bat_cave
+  displayName: Bat Cave
+  theme: cave
+  sceneName: Arena_bat_cave
+  enemies:
+  - prefab: {fileID: 568759768916713299, guid: 44e13d9c5f5476344a0b65b8b2808207, type: 3}
+    cost: 2
+    firstWave: 1
+    weight: 3
+  - prefab: {fileID: 4414137321037447928, guid: 0b1ddf7d91eff09498d221e1b9d462fa, type: 3}
+    cost: 1
+    firstWave: 2
+    weight: 3
+  - prefab: {fileID: 7118015692185386020, guid: 0cd14fc3baec5204b933b34caecd3f61, type: 3}
+    cost: 1
+    firstWave: 1
+    weight: 1
+  - prefab: {fileID: 463433993561320291, guid: 35be921eac6e23b45a0e90d64ee3729b, type: 3}
+    cost: 3
+    firstWave: 4
+    weight: 2
+  - prefab: {fileID: 2519798755040056042, guid: 5f91d42ef805701458daf194ffe35e24, type: 3}
+    cost: 2
+    firstWave: 2
+    weight: 2
+  - prefab: {fileID: 319691006106769594, guid: ea167a8021812c64f8d63241d97d7ce3, type: 3}
+    cost: 4
+    firstWave: 6
+    weight: 1
+  baseBudget: 4
+  budgetPerWave: 2.5
+  healthGrowth: 0.1
+  damageGrowth: 0.05
+  maxAlive: 16
+  spawnInterval: 0.5
+  checkpointEvery: 5
+  bossEvery: 5
+  bosses:
+  - {fileID: 8244057516706735695, guid: d9a9d801bb2fbc94cbce7ab7a41e36be, type: 3}
+  - {fileID: 7751270395826300867, guid: 3f65ea80095237843b9a55aefe9c8c0e, type: 3}
+  clearRewards:
+  - item: {fileID: 11400000, guid: 3c939c38c06df2b47a418edc0aeadc62, type: 2}
+    minAmount: 8
+    maxAmount: 14
+    chance: 1
+  - item: {fileID: 11400000, guid: 9c7db9ba2eb9fdc4c9d8910024180b98, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    chance: 1
+  - item: {fileID: 11400000, guid: a155dc25e5c34434d8243e0c3162d4f4, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.25
+  - item: {fileID: 11400000, guid: f4d56e4681b160449961fd8b18b3630f, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.3
+  - item: {fileID: 11400000, guid: 06f52a8b342cbea45b4f6b55ab5035b6, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.25

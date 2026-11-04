@@ -20,6 +20,9 @@ namespace MobileRpg
         [Tooltip("Seconds between the end of one attack and the start of the next.")]
         public float cooldown = 1.2f;
 
+        [Tooltip("Sound id played when an attack starts (a squeak, a screech). Empty for none.")]
+        public string voiceSound;
+
         /// <summary>True while an attack is playing.</summary>
         public bool IsAttacking { get; private set; }
 
@@ -42,6 +45,7 @@ namespace MobileRpg
         public void TryAttack(Transform target)
         {
             if (IsAttacking || !OwnHealth.IsAlive || Time.time < nextAttackTime) return;
+            Sfx.Play(voiceSound);
             StartCoroutine(Run(target));
         }
 

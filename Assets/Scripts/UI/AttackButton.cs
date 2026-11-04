@@ -5,6 +5,9 @@ namespace MobileRpg
     /// </summary>
     public class AttackButton : PointerDownAction
     {
+        /// <inheritdoc/>
+        protected override string ClickSound { get { return null; } }
+
         public ActionRouter router;
 
         /// <inheritdoc/>

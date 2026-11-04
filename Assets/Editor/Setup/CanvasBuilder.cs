@@ -8,7 +8,7 @@ namespace MobileRpg.EditorTools
     /// </summary>
     public static class CanvasBuilder
     {
-        /// <summary>Builds the canvas (1280x720 reference) and returns the safe-area container to parent controls to.</summary>
+        /// <summary>Builds the canvas (1280x720 reference, expanded to the screen shape) and returns the safe-area container to parent controls to.</summary>
         public static Transform Build()
         {
             GameObject canvasObject = new GameObject("Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
@@ -18,8 +18,7 @@ namespace MobileRpg.EditorTools
             CanvasScaler scaler = canvasObject.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1280f, 720f);
-            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            scaler.matchWidthOrHeight = 0.5f;
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand; // never crops: the 1280x720 reference always fits, extra space is added on the longer side
 
             return CreateSafeArea(canvasObject.transform);
         }

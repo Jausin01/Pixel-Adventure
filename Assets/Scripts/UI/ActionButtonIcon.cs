@@ -4,11 +4,13 @@ using UnityEngine.UI;
 namespace MobileRpg
 {
     /// <summary>
-    /// Shows the icon of the tool the action button will use. The icon is hidden when the button attacks.
+    /// Shows the icon of what the action button will do: the tool for a nearby resource, or the symbol of a nearby portal or board.
+    /// The icon is hidden when the button attacks.
     /// </summary>
     public class ActionButtonIcon : MonoBehaviour
     {
         public NearbyHarvestDetector detector;
+        public NearbyInteractableDetector interactions;
         public Image icon;
         public Sprite axeIcon;
         public Sprite pickaxeIcon;
@@ -16,24 +18,33 @@ namespace MobileRpg
 
         private void OnEnable()
         {
-            detector.ToolChanged += Apply;
-            Apply(detector.CurrentTool);
+            detector.ToolChanged += OnToolChanged;
+            interactions.CurrentChanged += OnInteractableChanged;
+            Refresh();
         }
 
         private void OnDisable()
         {
-            detector.ToolChanged -= Apply;
+            detector.ToolChanged -= OnToolChanged;
+            interactions.CurrentChanged -= OnInteractableChanged;
         }
 
-        private void Apply(ToolType tool)
+        private void OnToolChanged(ToolType tool) { Refresh(); }
+
+        private void OnInteractableChanged(Interactable interactable) { Refresh(); }
+
+        // Tools win over interactables, matching the order used by ActionRouter.
+        private void Refresh()
         {
             Sprite sprite = null;
-            switch (tool)
+            switch (detector.CurrentTool)
             {
                 case ToolType.Axe: sprite = axeIcon; break;
                 case ToolType.Pickaxe: sprite = pickaxeIcon; break;
                 case ToolType.Shovel: sprite = shovelIcon; break;
             }
+
+            if (sprite == null && interactions.Current != null) sprite = interactions.Current.icon;
 
             icon.sprite = sprite;
             icon.enabled = sprite != null;

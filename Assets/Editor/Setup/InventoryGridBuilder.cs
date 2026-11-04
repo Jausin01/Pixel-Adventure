@@ -15,7 +15,7 @@ namespace MobileRpg.EditorTools
         private static readonly Vector2 ViewportSize = new Vector2(628f, 530f);
 
         /// <summary>Builds the scroll area with <paramref name="slotCount"/> slots.</summary>
-        public static void Build(Transform frame, InventoryBrowser browser, int slotCount)
+        public static void Build(Transform frame, InventoryBrowser browser, RunLedger ledger, int slotCount)
         {
             RectTransform viewport = CreateViewport(frame);
             RectTransform content = CreateContent(viewport);
@@ -27,6 +27,7 @@ namespace MobileRpg.EditorTools
 
             InventoryGrid grid = content.gameObject.AddComponent<InventoryGrid>();
             grid.browser = browser;
+            grid.ledger = ledger;
             grid.slotViews = views;
         }
 
@@ -75,15 +76,28 @@ namespace MobileRpg.EditorTools
 
         private static InventorySlotView CreateSlot(Transform parent, Sprite slotSprite, InventoryBrowser browser)
         {
+            InventorySlotView view = CreateSlotView(parent, slotSprite, SlotSize);
+            view.gameObject.AddComponent<InventorySlotSelector>().browser = browser;
+            return view;
+        }
+
+        /// <summary>Creates one slot with its icon, count and outlines, without deciding what a tap does.</summary>
+        public static InventorySlotView CreateSlotView(Transform parent, Sprite slotSprite, float size)
+        {
             Vector2 center = new Vector2(0.5f, 0.5f);
-            Image background = UiFactory.CreateImage("Slot", parent, slotSprite, center, Vector2.zero, new Vector2(SlotSize, SlotSize));
+            Image background = UiFactory.CreateImage("Slot", parent, slotSprite, center, Vector2.zero, new Vector2(size, size));
 
             Outline outline = background.gameObject.AddComponent<Outline>();
             outline.effectColor = new Color(1f, 0.85f, 0.3f, 1f);
             outline.effectDistance = new Vector2(4f, -4f);
             outline.enabled = false;
 
-            Image icon = UiFactory.CreateImage("Icon", background.transform, null, center, Vector2.zero, new Vector2(SlotSize - 24f, SlotSize - 24f));
+            Outline risk = background.gameObject.AddComponent<Outline>();
+            risk.effectColor = new Color(0.9f, 0.15f, 0.15f, 1f);
+            risk.effectDistance = new Vector2(3f, -3f);
+            risk.enabled = false;
+
+            Image icon = UiFactory.CreateImage("Icon", background.transform, null, center, Vector2.zero, new Vector2(size - 24f, size - 24f));
             icon.raycastTarget = false;
             icon.preserveAspect = true;
             icon.enabled = false;
@@ -96,8 +110,7 @@ namespace MobileRpg.EditorTools
             view.icon = icon;
             view.countText = count;
             view.selectionOutline = outline;
-
-            background.gameObject.AddComponent<InventorySlotSelector>().browser = browser;
+            view.riskOutline = risk;
             return view;
         }
     }

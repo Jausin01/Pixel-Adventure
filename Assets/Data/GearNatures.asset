@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ad2ec3aa06fe2489232194f8974745, type: 3}
+  m_Name: GearNatures
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.GearNatureTable
+  natures:
+  - id: plain
+    displayName: Plain
+    attack: 1
+    defense: 1
+    maxHealth: 1
+    weight: 25
+  - id: sharp
+    displayName: Sharp
+    attack: 1.15
+    defense: 1
+    maxHealth: 1
+    weight: 10
+  - id: savage
+    displayName: Savage
+    attack: 1.25
+    defense: 0.9
+    maxHealth: 1
+    weight: 6
+  - id: heavy
+    displayName: Heavy
+    attack: 1.2
+    defense: 1
+    maxHealth: 0.9
+    weight: 6
+  - id: sturdy
+    displayName: Sturdy
+    attack: 1
+    defense: 1.2
+    maxHealth: 1
+    weight: 10
+  - id: guardian
+    displayName: Guardian
+    attack: 1
+    defense: 1.15
+    maxHealth: 1.1
+    weight: 5
+  - id: vital
+    displayName: Vital
+    attack: 1
+    defense: 1
+    maxHealth: 1.2
+    weight: 10
+  - id: mighty
+    displayName: Mighty
+    attack: 1.1
+    defense: 1.1
+    maxHealth: 1.1
+    weight: 3
+  - id: legendary
+    displayName: Legendary
+    attack: 1.25
+    defense: 1.25
+    maxHealth: 1.25
+    weight: 1
+  - id: dull
+    displayName: Dull
+    attack: 0.85
+    defense: 1
+    maxHealth: 1
+    weight: 8
+  - id: brittle
+    displayName: Brittle
+    attack: 1
+    defense: 0.85
+    maxHealth: 1
+    weight: 8
+  - id: frail
+    displayName: Frail
+    attack: 1
+    defense: 1
+    maxHealth: 0.85
+    weight: 8
+  - id: shoddy
+    displayName: Shoddy
+    attack: 0.9
+    defense: 0.9
+    maxHealth: 0.9
+    weight: 4

@@ -11,6 +11,9 @@ namespace MobileRpg
     {
         private readonly List<IDamageable> alreadyHit = new List<IDamageable>();
 
+        /// <summary>When false the targets hit are not pushed back.</summary>
+        public bool pushes = true;
+
         /// <summary>Forgets previously hit targets so they can be hit again.</summary>
         public void Reset()
         {
@@ -37,10 +40,13 @@ namespace MobileRpg
                 if (damageable == null || !damageable.IsAlive || alreadyHit.Contains(damageable)) continue;
 
                 alreadyHit.Add(damageable);
-                damageable.TakeDamage(damage, center);
+                Knockback.Suppressed = !pushes;
+                try { damageable.TakeDamage(damage, center); }
+                finally { Knockback.Suppressed = false; }
                 hitAny = true;
             }
 
+            if (hitAny) Sfx.Play(pushes ? "hit_enemy" : "hit_light");
             return hitAny;
         }
     }

@@ -23,6 +23,7 @@ namespace MobileRpg.EditorTools
             camera.transparencySortAxis = Vector3.up;
 
             cameraObject.AddComponent<CameraFollow>().target = target;
+            cameraObject.AddComponent<AudioListener>();
             PixelPerfectConfigurator.Configure(cameraObject);
         }
     }

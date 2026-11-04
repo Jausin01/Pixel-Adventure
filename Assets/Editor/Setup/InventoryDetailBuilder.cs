@@ -14,7 +14,7 @@ namespace MobileRpg.EditorTools
         private static readonly Vector2 TopLeft = new Vector2(0f, 1f);
 
         /// <summary>Builds the panel.</summary>
-        public static void Build(Transform frame, InventoryBrowser browser, ItemUser itemUser)
+        public static void Build(Transform frame, InventoryBrowser browser, ItemUser itemUser, QuickItem quick)
         {
             Image panel = UiFactory.CreateImage("Detail Panel", frame, null, TopLeft, Position, PanelSize);
             panel.color = new Color(0.22f, 0.16f, 0.13f, 1f);
@@ -43,10 +43,12 @@ namespace MobileRpg.EditorTools
             detail.infoText.color = new Color(1f, 1f, 1f, 0.7f);
             detail.descriptionText = CreateText(content.transform, "Description", 22, new Vector2(16f, -330f), new Vector2(256f, 100f));
             detail.descriptionText.alignment = TextAnchor.UpperLeft;
-            detail.effectText = CreateText(content.transform, "Effect", 24, new Vector2(16f, -432f), new Vector2(256f, 34f));
+            detail.effectText = CreateText(content.transform, "Effect", 24, new Vector2(16f, -432f), new Vector2(256f, 90f));
+            detail.effectText.alignment = TextAnchor.UpperLeft;
             detail.effectText.color = new Color(0.6f, 1f, 0.6f, 1f);
 
             detail.useButton = BuildUseButton(content.transform, browser, itemUser);
+            detail.quickButton = BuildQuickButton(content.transform, browser, quick);
         }
 
         private static Image CreateIcon(Transform parent)
@@ -64,15 +66,30 @@ namespace MobileRpg.EditorTools
 
         private static GameObject BuildUseButton(Transform parent, InventoryBrowser browser, ItemUser itemUser)
         {
-            Image button = UiFactory.CreateImage("Use Button", parent, null, new Vector2(0.5f, 0f), new Vector2(0f, 16f), new Vector2(240f, 48f));
+            Image button = UiFactory.CreateImage("Use Button", parent, null, new Vector2(0.5f, 0f), new Vector2(-69f, 16f), new Vector2(130f, 48f));
             button.color = new Color(0.6f, 0.45f, 0.15f, 1f);
 
             UiFactory.CreateText("Label", button.transform, "Use", 28, TextAnchor.MiddleCenter,
-                new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(240f, 48f));
+                new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(130f, 48f));
 
             UseItemButton action = button.gameObject.AddComponent<UseItemButton>();
             action.browser = browser;
             action.itemUser = itemUser;
+            button.gameObject.AddComponent<PressScaleFeedback>();
+            return button.gameObject;
+        }
+
+        private static GameObject BuildQuickButton(Transform parent, InventoryBrowser browser, QuickItem quick)
+        {
+            Image button = UiFactory.CreateImage("Quick Button", parent, null, new Vector2(0.5f, 0f), new Vector2(69f, 16f), new Vector2(130f, 48f));
+            button.color = new Color(0.25f, 0.45f, 0.6f, 1f);
+
+            UiFactory.CreateText("Label", button.transform, "Quick", 28, TextAnchor.MiddleCenter,
+                new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(130f, 48f));
+
+            SetQuickItemButton action = button.gameObject.AddComponent<SetQuickItemButton>();
+            action.browser = browser;
+            action.quick = quick;
             button.gameObject.AddComponent<PressScaleFeedback>();
             return button.gameObject;
         }

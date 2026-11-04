@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MobileRpg.EditorTools
 {
     /// <summary>
-    /// Places one rock of each ore type in a row in the test scene. Needs the items created by ItemCatalogBuilder.
+    /// Places one rock of each ore type in the town's ore block. Needs the items created by ItemCatalogBuilder.
     /// </summary>
     public static class OreWorldBuilder
     {
@@ -25,14 +25,11 @@ namespace MobileRpg.EditorTools
         /// <summary>Builds the ore row.</summary>
         public static void Build(Material material)
         {
-            const float spacing = 1.5f;
-            float startX = -(Ores.Length - 1) * spacing / 2f;
-
             for (int i = 0; i < Ores.Length; i++)
             {
                 ItemDefinition item = ItemAssetFactory.Load(Ores[i][1]);
                 DropEntry[] drops = { new DropEntry { item = item, minAmount = 1, maxAmount = 2, chance = 1f } };
-                OreBuilder.Build(material, new Vector2(startX + i * spacing, -4f), Ores[i][0], drops);
+                OreBuilder.Build(material, TownLayout.OrePosition(i), Ores[i][0], drops);
             }
         }
     }

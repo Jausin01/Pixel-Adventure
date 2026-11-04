@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97be9530cc11acf4d82990a730ff720a, type: 3}
+  m_Name: Music Bank
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.SoundBank
+  entries:
+  - id: bat_cave
+    clips:
+    - {fileID: 8300000, guid: 2d1a59434a65d2344a88f18f3daff905, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: boss
+    clips:
+    - {fileID: 8300000, guid: d84120168d46ae447b3a46adceaf47bd, type: 3}
+    - {fileID: 8300000, guid: 7ff92c25cf17e8b478cfc53fc843b02a, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: game_over
+    clips:
+    - {fileID: 8300000, guid: 9bace7f829808494bbed693ad5810f1b, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 0
+  - id: haunted_farm
+    clips:
+    - {fileID: 8300000, guid: edac3342ef1aaa1438ce055f7d1ccd0a, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: menu
+    clips:
+    - {fileID: 8300000, guid: 2a7b84530e9f1bc409b5c0991fd7f9e0, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: mortal_arena
+    clips:
+    - {fileID: 8300000, guid: b9a19bf7db732444bbfea85284e43e42, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: old_dungeon
+    clips:
+    - {fileID: 8300000, guid: bd7e3f559bc302e44a575f2ac866d732, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: rat_fields
+    clips:
+    - {fileID: 8300000, guid: ff531fa044c9f6943bc17893f6258ae5, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: title
+    clips:
+    - {fileID: 8300000, guid: 1621052871cc17944a886098d51884c5, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: town_day
+    clips:
+    - {fileID: 8300000, guid: b434673918e9c8c408f47d48e6fdf616, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: town_night
+    clips:
+    - {fileID: 8300000, guid: 6d33064ee63d67f4385c86492d5361ff, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1

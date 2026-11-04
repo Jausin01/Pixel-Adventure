@@ -18,10 +18,17 @@ namespace MobileRpg
         [Tooltip("Distance at which the enemy stops and attacks.")]
         public float attackRange = 1f;
 
+        [Tooltip("Seconds an enemy walks along an obstacle after bumping into it, before heading for the target again.")]
+        public float detourTime = 0.6f;
+
         private EnemyMovement movement;
         private EnemyAttack attack;
         private Health ownHealth;
         private Health targetHealth;
+        private Vector2 detourDirection;
+        private float detourEnd;
+        private float lastBumpTime = -10f;
+        private float detourSide = 1f;
 
         private void Awake()
         {
@@ -50,11 +57,32 @@ namespace MobileRpg
 
             if (distance > attackRange)
             {
-                movement.Direction = toTarget / distance;
+                // Straight at the target, unless a recent bump asked for a detour around an obstacle.
+                movement.Direction = Time.time < detourEnd ? detourDirection : toTarget / distance;
                 return;
             }
 
             attack.TryAttack(target);
+        }
+
+        // Runs only while touching something. Solid scenery (no Health) makes the enemy re-plan once:
+        // it slides along the obstacle for a moment instead of pushing into it every frame.
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (Time.time < detourEnd || target == null) return;
+            if (collision.collider.GetComponentInParent<Health>() != null) return;
+
+            Vector2 normal = collision.GetContact(0).normal;
+            Vector2 tangent = new Vector2(-normal.y, normal.x);
+            Vector2 toTarget = (Vector2)target.position - (Vector2)transform.position;
+
+            // Bumping again right after a detour means that side is blocked too: try the other one.
+            if (Time.time - lastBumpTime < detourTime * 2f) detourSide = -detourSide;
+            else detourSide = Vector2.Dot(tangent, toTarget) >= 0f ? 1f : -1f;
+
+            detourDirection = (tangent * detourSide + normal * 0.3f).normalized;
+            detourEnd = Time.time + detourTime;
+            lastBumpTime = Time.time;
         }
     }
 }

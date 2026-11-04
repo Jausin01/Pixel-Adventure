@@ -17,7 +17,16 @@ namespace MobileRpg.EditorTools
         /// <summary>Folder that contains all art.</summary>
         public const string ArtFolder = "Assets/Art";
 
-        /// <summary>Path of the generated test scene.</summary>
-        public const string ScenePath = "Assets/Scenes/Hub.unity";
+        /// <summary>Id of the item used as money. Rename the item's display name in ItemCatalogBuilder.</summary>
+        public const string CurrencyId = "rift_shard";
+
+        /// <summary>Path of the town scene, where the player lives between runs.</summary>
+        public const string ScenePath = "Assets/Scenes/Town.unity";
+
+        /// <summary>Folder that holds one scene per arena.</summary>
+        public const string ArenaSceneFolder = "Assets/Scenes/Arenas";
+
+        /// <summary>Prefix of arena scene names; the arena id follows.</summary>
+        public const string ArenaScenePrefix = "Arena_";
     }
 }

@@ -26,6 +26,13 @@ namespace MobileRpg
         /// </summary>
         public bool Collect(Inventory inventory)
         {
+            bool done = CollectCore(inventory);
+            if (done) Sfx.Play(Item.id.Contains("coin") ? "coin_pickup" : "item_pickup");
+            return done;
+        }
+
+        private bool CollectCore(Inventory inventory)
+        {
             if (!inventory.Add(Item, Amount)) return false;
 
             Destroy(gameObject);

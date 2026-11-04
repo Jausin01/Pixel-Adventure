@@ -1,0 +1,332 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f51276edc2a1745b58e347a140c268, type: 3}
+  m_Name: QuestPools
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.QuestPools
+  materials:
+  - item: {fileID: 11400000, guid: 9c7db9ba2eb9fdc4c9d8910024180b98, type: 2}
+    min: 4
+    max: 8
+    minDone: 0
+  - item: {fileID: 11400000, guid: e120288fc24b6f946bd3df00b13048a6, type: 2}
+    min: 4
+    max: 8
+    minDone: 0
+  - item: {fileID: 11400000, guid: 07e44798da6afda419816abd78dd5c4c, type: 2}
+    min: 3
+    max: 6
+    minDone: 0
+  - item: {fileID: 11400000, guid: 954c00f6219a61541930d6dc2ee8ea99, type: 2}
+    min: 3
+    max: 6
+    minDone: 0
+  - item: {fileID: 11400000, guid: 1741160b842ea834fbc5b7e699a2ee43, type: 2}
+    min: 3
+    max: 6
+    minDone: 1
+  - item: {fileID: 11400000, guid: c5500d0721ee5d14ea1fe943f062bad0, type: 2}
+    min: 2
+    max: 4
+    minDone: 2
+  - item: {fileID: 11400000, guid: a155dc25e5c34434d8243e0c3162d4f4, type: 2}
+    min: 2
+    max: 4
+    minDone: 2
+  - item: {fileID: 11400000, guid: f60f3b922de5451419766b4cdb2a560c, type: 2}
+    min: 1
+    max: 2
+    minDone: 4
+  - item: {fileID: 11400000, guid: a73a0d9ddefb9bf439f7e35af3ffbb42, type: 2}
+    min: 1
+    max: 2
+    minDone: 6
+  - item: {fileID: 11400000, guid: 7db8b50f72b0c024082de4196b07dcd6, type: 2}
+    min: 1
+    max: 2
+    minDone: 8
+  - item: {fileID: 11400000, guid: e7fbaf5dc25e784408ba4a207158bbc5, type: 2}
+    min: 1
+    max: 2
+    minDone: 8
+  enemies:
+  - enemy: rat
+    label: Rats
+    arena: {fileID: 11400000, guid: bcaa8f2a0c05f824f9a730b25d0edaec, type: 2}
+    min: 8
+    max: 14
+    minDone: 0
+  - enemy: bat
+    label: Bats
+    arena: {fileID: 11400000, guid: 1ed0a2d2997969f45af2e3a702f84d33, type: 2}
+    min: 6
+    max: 12
+    minDone: 0
+  - enemy: 
+    label: Monsters
+    arena: {fileID: 0}
+    min: 15
+    max: 25
+    minDone: 0
+  - enemy: brown_rat
+    label: Brown Rats
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 2
+  - enemy: white_rat
+    label: White Rats
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 2
+  - enemy: zombie
+    label: Zombies
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 1
+  - enemy: skeleton
+    label: Skeletons
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 1
+  - enemy: slime
+    label: Slimes
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 2
+  - enemy: spider
+    label: Spiders
+    arena: {fileID: 0}
+    min: 8
+    max: 14
+    minDone: 1
+  - enemy: moss_brute
+    label: Moss Brutes
+    arena: {fileID: 0}
+    min: 5
+    max: 9
+    minDone: 2
+  - enemy: shadow_boar
+    label: Shadow Boars
+    arena: {fileID: 0}
+    min: 5
+    max: 9
+    minDone: 2
+  - enemy: cave_gnawer
+    label: Cave Gnawers
+    arena: {fileID: 0}
+    min: 6
+    max: 10
+    minDone: 1
+  - enemy: hollow_knight
+    label: Hollow Knights
+    arena: {fileID: 0}
+    min: 4
+    max: 8
+    minDone: 3
+  - enemy: wraith
+    label: Wraiths
+    arena: {fileID: 0}
+    min: 4
+    max: 8
+    minDone: 3
+  - enemy: rat_king
+    label: Rat King
+    arena: {fileID: 11400000, guid: bcaa8f2a0c05f824f9a730b25d0edaec, type: 2}
+    min: 1
+    max: 2
+    minDone: 3
+  - enemy: thorn_beast
+    label: Thorn Beast
+    arena: {fileID: 0}
+    min: 1
+    max: 2
+    minDone: 4
+  - enemy: stone_colossus
+    label: Stone Colossus
+    arena: {fileID: 0}
+    min: 1
+    max: 2
+    minDone: 5
+  - enemy: horned_tyrant
+    label: Horned Tyrant
+    arena: {fileID: 0}
+    min: 1
+    max: 2
+    minDone: 5
+  - enemy: ashen_drake
+    label: Ashen Drake
+    arena: {fileID: 0}
+    min: 1
+    max: 2
+    minDone: 6
+  - enemy: ogre_king
+    label: Ogre King
+    arena: {fileID: 0}
+    min: 1
+    max: 2
+    minDone: 5
+  arenas:
+  - {fileID: 11400000, guid: bcaa8f2a0c05f824f9a730b25d0edaec, type: 2}
+  - {fileID: 11400000, guid: 1ed0a2d2997969f45af2e3a702f84d33, type: 2}
+  - {fileID: 11400000, guid: 8c60b3fd0cbc4d44b9972d26ba3a9f1c, type: 2}
+  - {fileID: 11400000, guid: 7c4962cb1574f6d4aa612ab2432883a7, type: 2}
+  - {fileID: 11400000, guid: ef3aae9685b24b84e8731deb9539b221, type: 2}
+  rewards:
+  - item: {fileID: 11400000, guid: f60f3b922de5451419766b4cdb2a560c, type: 2}
+    min: 1
+    max: 2
+    weight: 3
+    minDone: 0
+  - item: {fileID: 11400000, guid: c69fa8c44e232b34cbeb45bd876208b6, type: 2}
+    min: 1
+    max: 1
+    weight: 2
+    minDone: 0
+  - item: {fileID: 11400000, guid: 8bd5e02d6aefa4d4bb628f3f6b40d3cb, type: 2}
+    min: 1
+    max: 1
+    weight: 2
+    minDone: 0
+  - item: {fileID: 11400000, guid: c9e0f16292a1c10499f4a0fc806719ce, type: 2}
+    min: 1
+    max: 1
+    weight: 2
+    minDone: 2
+  - item: {fileID: 11400000, guid: 47339d0750cd42e47903fb70c1fbf8df, type: 2}
+    min: 1
+    max: 1
+    weight: 2
+    minDone: 2
+  - item: {fileID: 11400000, guid: b5163595a3102dd438c3f8af7de2fe25, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 3
+  - item: {fileID: 11400000, guid: 01274804ae4384f408140791b6277064, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 5
+  - item: {fileID: 11400000, guid: a82b67585b6d4d8438904a07af60a5df, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 6
+  - item: {fileID: 11400000, guid: c8e0e94ec179f9c498216fbe34fd026a, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 9
+  - item: {fileID: 11400000, guid: c0a8941d366660e47aff56024a0d89d0, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: e31a2200145bcff4cb2d63f1cfb16bee, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: 7131bc1ce7dc3e242894681ec8feabee, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: 52242ea082d256b4eb1beef2d13abdd4, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: a37dee8235c45a641a32360d44717708, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: be807298e04c4c743bc18b4c78460c6d, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: 72846918471d9bf4388784cfd303a69c, type: 2}
+    min: 1
+    max: 1
+    weight: 1.5
+    minDone: 1
+  - item: {fileID: 11400000, guid: cf1b881294ddc0a498c2a5b68feeacec, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 4
+  - item: {fileID: 11400000, guid: e3d9c037bafa68c4b9692c7b690df7c2, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 4
+  - item: {fileID: 11400000, guid: 8a2a8fc70679d874bb575aa13cea6904, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 5
+  - item: {fileID: 11400000, guid: 6a32b2cc6b94a994eb694bfad10fcecb, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 5
+  - item: {fileID: 11400000, guid: c5550257a6edc0f4189f0506c32967d2, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 5
+  - item: {fileID: 11400000, guid: 727ff6c8b19a8f343bd7f2895ccdd2ca, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 5
+  - item: {fileID: 11400000, guid: 9db9b3d63879da94aa056da060edf789, type: 2}
+    min: 1
+    max: 1
+    weight: 1
+    minDone: 5
+  - item: {fileID: 11400000, guid: fa8c4ad1e0b51a54890af5ed602c5670, type: 2}
+    min: 1
+    max: 1
+    weight: 0.7
+    minDone: 9
+  - item: {fileID: 11400000, guid: e4c46fc5aee68254dbcc1bf874143347, type: 2}
+    min: 1
+    max: 1
+    weight: 0.7
+    minDone: 9
+  - item: {fileID: 11400000, guid: 8023f0bc77447cc478a3f56679e9fb03, type: 2}
+    min: 1
+    max: 1
+    weight: 0.7
+    minDone: 9
+  - item: {fileID: 11400000, guid: 91539e9f96060ef4ea262af2fcf88456, type: 2}
+    min: 1
+    max: 1
+    weight: 0.7
+    minDone: 9
+  - item: {fileID: 11400000, guid: 930ed6b01bcb51b46a6c60fca7118bfc, type: 2}
+    min: 1
+    max: 1
+    weight: 0.7
+    minDone: 9
+  currency: {fileID: 11400000, guid: 3c939c38c06df2b47a418edc0aeadc62, type: 2}
+  currencyPerPoint: 1.5
+  minWave: 3
+  growthPerQuest: 0.05
+  maxGrowth: 3

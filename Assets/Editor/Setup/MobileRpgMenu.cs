@@ -17,6 +17,13 @@ namespace MobileRpg.EditorTools
             Debug.Log("Mobile RPG: setup finished. Press Play.");
         }
 
+        [MenuItem("Tools/Mobile RPG/Delete Save")]
+        public static void DeleteSave()
+        {
+            SaveFile.Delete();
+            Debug.Log("Mobile RPG: save deleted. The next Play starts a new game.");
+        }
+
         [MenuItem("Tools/Mobile RPG/1 - Apply Project Settings")]
         public static void ApplySettings() { ProjectSettingsApplier.Apply(); }
 

@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Hub.unity
-    guid: 4cd90ae35011aa14a81afa65b272993f
+    path: Assets/Scenes/Town.unity
+    guid: a4cce970565a1964c8b93967efe9e5c1
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena_rat_fields.unity
+    guid: b6977f9ce6ea1eb4dbb0fd0bc8a08781
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena_bat_cave.unity
+    guid: 919566019cee3524687fab5474fa49e0
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena_old_dungeon.unity
+    guid: f11194bebd1a4054ab123bb659210b7c
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena_haunted_farm.unity
+    guid: a7cafb9bd0f74d44695e8975b83ea64c
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena_mortal_arena.unity
+    guid: 55c47b3472caad04e9af1dc8369cfcca
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

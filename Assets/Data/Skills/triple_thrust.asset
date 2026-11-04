@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3718f309e2df13848aca2bd152b8a7e0, type: 3}
+  m_Name: triple_thrust
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.SkillDefinition
+  id: triple_thrust
+  displayName: Triple Thrust
+  description: Three stabs in a row, each reaching further than the last.
+  icon: {fileID: 21300000, guid: cb7817519f1ffc5408371bf0f9871e2f, type: 3}
+  weaponClass: 2
+  type: 7
+  goldCost: 2
+  energyCost: 30
+  cooldown: 6
+  damageMultiplier: 1.4

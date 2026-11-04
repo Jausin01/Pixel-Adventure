@@ -11,6 +11,7 @@ namespace MobileRpg.EditorTools
         public static GameObject Build(Material material)
         {
             GameObject player = new GameObject("Player");
+            player.transform.position = TownLayout.PlayerSpawn;
 
             SpriteRenderer renderer = player.AddComponent<SpriteRenderer>();
             renderer.sprite = SpriteLoader.Load("Player/idle_down");

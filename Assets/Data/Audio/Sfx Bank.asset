@@ -1,0 +1,380 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97be9530cc11acf4d82990a730ff720a, type: 3}
+  m_Name: Sfx Bank
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.SoundBank
+  entries:
+  - id: arena_transform
+    clips:
+    - {fileID: 8300000, guid: 2b18ba5bfe1b76b46a9d71e57125bce7, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: axe_spin
+    clips:
+    - {fileID: 8300000, guid: 162afc5e870586e469355750d0162629, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: axe_swing
+    clips:
+    - {fileID: 8300000, guid: 65861badf3abb424cb310ba52128851e, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: bat
+    clips:
+    - {fileID: 8300000, guid: 989f966c70b45ca478982149519fb975, type: 3}
+    volume: 0.6
+    pitchVariation: 0.05
+    minInterval: 0.5
+    loop: 1
+  - id: boomerang
+    clips:
+    - {fileID: 8300000, guid: 1940f806fa1b4ce49814ec50461cb61e, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: boss_charge
+    clips:
+    - {fileID: 8300000, guid: 2ea51dddb5abc5640beadb18a4bdbfeb, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: boss_growl
+    clips:
+    - {fileID: 8300000, guid: 370fcfb56515617459fa6bd5687bb233, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: boss_spawn
+    clips:
+    - {fileID: 8300000, guid: 3ad37e19e32952545871e0c83dd6c8d8, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: boss_volley
+    clips:
+    - {fileID: 8300000, guid: bc9a8e45fecc5d745a16f48debd54b52, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: boss_warning
+    clips:
+    - {fileID: 8300000, guid: a6654d6071ca75146a2057678f04c935, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.3
+    loop: 1
+  - id: bow_shoot
+    clips:
+    - {fileID: 8300000, guid: c491760891ee9eb4c848385bf4a589be, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: checkpoint
+    clips:
+    - {fileID: 8300000, guid: 45f891c5dd4270e479a9cb1d4ca72287, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: chop_wood
+    clips:
+    - {fileID: 8300000, guid: ff1f0559182534549b4ca37fb09e0dad, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: coin_pickup
+    clips:
+    - {fileID: 8300000, guid: 0d75c77b738279b499a02f2744955d51, type: 3}
+    volume: 0.7
+    pitchVariation: 0.05
+    minInterval: 0.05
+    loop: 1
+  - id: dagger_slash
+    clips:
+    - {fileID: 8300000, guid: 8db8290b8bd313c49aa148865c77265f, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: death_groan
+    clips:
+    - {fileID: 8300000, guid: d81253ea35ec7e943910bcb443f002aa, type: 3}
+    volume: 0.7
+    pitchVariation: 0.05
+    minInterval: 0.1
+    loop: 1
+  - id: fireball_cast
+    clips:
+    - {fileID: 8300000, guid: 4b3c114297db95e4888ffea2065856d8, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: fireball_explosion
+    clips:
+    - {fileID: 8300000, guid: c537c03998f2db64dbbe9912d92b16c9, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.08
+    loop: 1
+  - id: forge
+    clips:
+    - {fileID: 8300000, guid: ed1d950dde924554aa6433498f571245, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: hammer_swing
+    clips:
+    - {fileID: 8300000, guid: 11c15f531e02db94086e1790bc97cd1d, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: heal
+    clips:
+    - {fileID: 8300000, guid: 24e800f9ff1dc4a4a972071600737bc3, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: hit_enemy
+    clips:
+    - {fileID: 8300000, guid: b121a529ca56ed24a855891405ec572c, type: 3}
+    - {fileID: 8300000, guid: 5a2a354c5c07be144b3985b447166759, type: 3}
+    - {fileID: 8300000, guid: 1cc002b5fb9450546b7c6592b466a45c, type: 3}
+    volume: 0.7
+    pitchVariation: 0.05
+    minInterval: 0.05
+    loop: 1
+  - id: hit_heavy
+    clips:
+    - {fileID: 8300000, guid: 107f1c0168866f242b6c4bef6dd418e3, type: 3}
+    volume: 0.8
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: hit_light
+    clips:
+    - {fileID: 8300000, guid: b04a7ec6035e6b54b80230836c459d9b, type: 3}
+    volume: 0.6
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: item_pickup
+    clips:
+    - {fileID: 8300000, guid: 2a1304b29df15f44da5f3d2d0faf0aa2, type: 3}
+    volume: 0.7
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: meteor_fall
+    clips:
+    - {fileID: 8300000, guid: 14a6443771057fe4f9baa838701c8acb, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: mine
+    clips:
+    - {fileID: 8300000, guid: a74847e2bc2541746a52fecd470b5a50, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: player_hurt
+    clips:
+    - {fileID: 8300000, guid: 18674c05ff75a32459506fb421ec2d52, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.2
+    loop: 1
+  - id: portal_open
+    clips:
+    - {fileID: 8300000, guid: da64597f9d633d84a8d3e6a59784eecd, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: quest_complete
+    clips:
+    - {fileID: 8300000, guid: e094d40a26915ac40bc5fa2c432c2d93, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: rain_fall
+    clips:
+    - {fileID: 8300000, guid: e6ee2a99db475a54f845cdbb3e9868e8, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: rat
+    clips:
+    - {fileID: 8300000, guid: 5a7e8af8e8da3e543bf1113f8cfb632c, type: 3}
+    volume: 0.6
+    pitchVariation: 0.05
+    minInterval: 0.5
+    loop: 1
+  - id: save_bell
+    clips:
+    - {fileID: 8300000, guid: 847e6e723e84404409f859234503e3e8, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: shockwave
+    clips:
+    - {fileID: 8300000, guid: 054e5960095f8b341a863e69864e918e, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: shop_buy
+    clips:
+    - {fileID: 8300000, guid: 11dcafebea3d9874eb15079a80ab1521, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: shop_sell
+    clips:
+    - {fileID: 8300000, guid: f7a3e9e6e1fed0b4c8c33ca4d9635be1, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: shuriken_hit
+    clips:
+    - {fileID: 8300000, guid: 0c2b6aa07fbe87a488c892b10401b6da, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: shuriken_throw
+    clips:
+    - {fileID: 8300000, guid: c3c2397d853ed4141b91e4378a2ed832, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: skill_learn
+    clips:
+    - {fileID: 8300000, guid: 26404ed072c4b214aadcf91908c5d4f9, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: spear_swing
+    clips:
+    - {fileID: 8300000, guid: 8c550f063e6be0e4fad467815328397d, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: staff_cast
+    clips:
+    - {fileID: 8300000, guid: 405817b79073467498ee920db42e96c1, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: step_grass
+    clips:
+    - {fileID: 8300000, guid: a10e20e6b8c637743b93c55b1cf3c5a3, type: 3}
+    - {fileID: 8300000, guid: b3124fa919eabed41a682b2af47067b4, type: 3}
+    - {fileID: 8300000, guid: 609c671deafee72489d751bf8e7ea8bb, type: 3}
+    - {fileID: 8300000, guid: ee63940f29f4c3949a86585dc521cad3, type: 3}
+    - {fileID: 8300000, guid: da8eed02cae19c444893ea6fa71f737b, type: 3}
+    - {fileID: 8300000, guid: dc45dbe3e27baf2419824334cca93d89, type: 3}
+    volume: 0.15
+    pitchVariation: 0.1
+    minInterval: 0.15
+    loop: 1
+  - id: step_stone
+    clips:
+    - {fileID: 8300000, guid: fcbb8aa6ba356fb40b4701bc375d4c64, type: 3}
+    - {fileID: 8300000, guid: d58270dba7d6cbc42868442c58f552d5, type: 3}
+    - {fileID: 8300000, guid: d12f47f9c9d658e438b62ada8b318f40, type: 3}
+    - {fileID: 8300000, guid: 451a05559651ff54a8d396414c22a9c4, type: 3}
+    - {fileID: 8300000, guid: e723107cfaac87f47b764b4f81e0bdd2, type: 3}
+    - {fileID: 8300000, guid: 5dd6fb860cd8e954dac756c3d2b79916, type: 3}
+    volume: 0.15
+    pitchVariation: 0.1
+    minInterval: 0.15
+    loop: 1
+  - id: stomp
+    clips:
+    - {fileID: 8300000, guid: 31f6882078a910d48a3b141c0b26d7f2, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: sword_kill
+    clips:
+    - {fileID: 8300000, guid: f62fa3fc9dc65044cad873fb673135fa, type: 3}
+    volume: 0.6
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: sword_swing
+    clips:
+    - {fileID: 8300000, guid: f39c68e8abb609143a70ee7e621ad4a8, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: thunder
+    clips:
+    - {fileID: 8300000, guid: d0345f2fab04c364390f99e7db3730df, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+    minInterval: 0.04
+    loop: 1
+  - id: ui_click
+    clips:
+    - {fileID: 8300000, guid: 19ea987601cc2444383932eaa40827eb, type: 3}
+    volume: 0.6
+    pitchVariation: 0.05
+    minInterval: 0.05
+    loop: 1
+  - id: ui_error
+    clips:
+    - {fileID: 8300000, guid: 0c061043e3d8afb4d843b9a1a34d8188, type: 3}
+    volume: 1
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1
+  - id: victory
+    clips:
+    - {fileID: 8300000, guid: 2e60430d77d2e6a4d8f9ea481e2dc1de, type: 3}
+    - {fileID: 8300000, guid: 2c1f977d2c408bb4e8456cc76c5c466e, type: 3}
+    - {fileID: 8300000, guid: 9887d4853a5edea44af33f686a1e5e2c, type: 3}
+    - {fileID: 8300000, guid: 9902c6ad5d396e74cb638d8d4ba02d37, type: 3}
+    volume: 0.8
+    pitchVariation: 0
+    minInterval: 0.04
+    loop: 1

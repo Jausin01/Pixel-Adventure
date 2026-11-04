@@ -79,6 +79,37 @@ namespace MobileRpg
             return true;
         }
 
+        /// <summary>True when this exact slot (piece of gear) is in the inventory.</summary>
+        public bool Contains(InventorySlot slot)
+        {
+            return slots.Contains(slot);
+        }
+
+        /// <summary>Adds an existing piece of gear. Returns false when there is no room.</summary>
+        public bool Insert(InventorySlot slot)
+        {
+            if (slot == null || slots.Count >= capacity) return false;
+
+            slots.Add(slot);
+            RaiseChanged(slot.Item);
+            return true;
+        }
+
+        /// <summary>Takes this exact slot (piece of gear) out of the inventory. Returns false when it is not there.</summary>
+        public bool Detach(InventorySlot slot)
+        {
+            if (!slots.Remove(slot)) return false;
+
+            RaiseChanged(slot.Item);
+            return true;
+        }
+
+        /// <summary>Announces that something about an item changed without its count changing (a piece was upgraded).</summary>
+        public void Touch(ItemDefinition item)
+        {
+            RaiseChanged(item);
+        }
+
         private InventorySlot FindSlot(ItemDefinition item)
         {
             for (int i = 0; i < slots.Count; i++)

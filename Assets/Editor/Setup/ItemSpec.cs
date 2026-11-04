@@ -13,5 +13,13 @@ namespace MobileRpg.EditorTools
         public string description;
         public float healthRestored;
         public float energyRestored;
+        public EquipmentKind equipKind;
+        public float attack;
+        public float defense;
+        public float maxHealth;
+        public int sellValue;            // what the merchant pays for one, in the currency
+        public int maxStack;             // 0 keeps the default of the item definition
+        public bool dropAsSingleStack;
+        public int swordSkinIndex;       // index into the sword skins (silver, blue, red, black, green)
     }
 }

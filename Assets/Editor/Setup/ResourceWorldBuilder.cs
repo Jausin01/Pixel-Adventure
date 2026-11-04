@@ -18,11 +18,12 @@ namespace MobileRpg.EditorTools
             DropEntry[] appleTree = { Drop(wood, 2, 4, 1f), Drop(apple, 1, 3, 1f) };
             DropEntry[] orangeTree = { Drop(wood, 2, 4, 1f), Drop(orange, 1, 3, 1f) };
 
-            TreeBuilder.Build(material, new Vector2(-6f, 3f), 0, 0, plain);
-            TreeBuilder.Build(material, new Vector2(-3f, 4f), 1, 1, appleTree);
-            TreeBuilder.Build(material, new Vector2(0f, 5f), 2, 2, plain);
-            TreeBuilder.Build(material, new Vector2(3f, 4.5f), 3, 3, orangeTree);
-            TreeBuilder.Build(material, new Vector2(6f, 3f), 4, 4, plain);
+            DropEntry[][] tables = { plain, appleTree, plain, orangeTree, plain };
+            Vector2[] spots = TownLayout.Trees;
+            for (int i = 0; i < spots.Length; i++)
+            {
+                TreeBuilder.Build(material, spots[i], i % 5, i % 5, tables[i % tables.Length]);
+            }
         }
 
         private static DropEntry Drop(ItemDefinition item, int min, int max, float chance)

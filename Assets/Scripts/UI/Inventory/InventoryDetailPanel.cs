@@ -27,6 +27,9 @@ namespace MobileRpg
         [Tooltip("The Use button. Only shown for items that can be used.")]
         public GameObject useButton;
 
+        [Tooltip("The button that puts the item on the quick slot. Shown together with the Use button.")]
+        public GameObject quickButton;
+
         private void OnEnable()
         {
             browser.Changed += Refresh;
@@ -47,7 +50,7 @@ namespace MobileRpg
 
             ItemDefinition item = slot.Item;
             icon.sprite = item.icon;
-            nameText.text = item.displayName;
+            nameText.text = slot.Gear != null ? slot.Gear.DisplayName : item.displayName;
 
             tierText.text = item.tier != null ? item.tier.displayName : string.Empty;
             tierText.color = item.tier != null ? item.tier.color : Color.white;
@@ -57,8 +60,10 @@ namespace MobileRpg
             infoText.text = info;
 
             descriptionText.text = item.description;
-            effectText.text = ItemDescriber.Effects(item);
-            useButton.SetActive(itemUser.CanUse(item));
+            effectText.text = ItemDescriber.Effects(slot);
+            bool usable = itemUser.CanUse(item);
+            useButton.SetActive(usable);
+            quickButton.SetActive(usable);
         }
     }
 }

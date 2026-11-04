@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fb6609637e024449b80cff231184e1, type: 3}
+  m_Name: amethyst_staff
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.ItemDefinition
+  id: amethyst_staff
+  displayName: Amethyst Staff
+  description: The gem hums with power.
+  icon: {fileID: 21300000, guid: f58a5e5ed5706bb4d95f621481e3b383, type: 3}
+  category: 3
+  tier: {fileID: 11400000, guid: eee2607a68ba1f64e8c5b1739691326b, type: 2}
+  maxStack: 100
+  sellValue: 0
+  dropAsSingleStack: 0
+  healthRestored: 0
+  energyRestored: 0
+  equipKind: 13
+  attackBonus: 6
+  defenseBonus: 0
+  maxHealthBonus: 0
+  natures: {fileID: 11400000, guid: d5dd059a55a70b34bb19297d71beb702, type: 2}
+  swordSkinIndex: 1

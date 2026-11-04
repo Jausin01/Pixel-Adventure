@@ -12,6 +12,9 @@ namespace MobileRpg
         [Tooltip("Seconds between death and respawn.")]
         public float delay = 1.5f;
 
+        /// <summary>While true the respawn waits after the delay. Set by the game over panel until the player confirms.</summary>
+        public bool HoldRespawn { get; set; }
+
         private Health health;
         private Rigidbody2D body;
         private Vector2 spawnPoint;
@@ -41,6 +44,7 @@ namespace MobileRpg
         private IEnumerator RespawnAfterDelay()
         {
             yield return new WaitForSeconds(delay);
+            while (HoldRespawn) yield return null;
             transform.position = spawnPoint;
             if (body != null) body.position = spawnPoint;
             health.ResetHealth();

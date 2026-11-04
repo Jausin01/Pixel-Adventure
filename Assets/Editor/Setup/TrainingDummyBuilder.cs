@@ -10,8 +10,8 @@ namespace MobileRpg.EditorTools
         /// <summary>Builds the dummies at fixed positions.</summary>
         public static void Build(Material material)
         {
-            CreateDummy("Training Dummy 1", new Vector2(3.5f, 1.5f), material);
-            CreateDummy("Training Dummy 2", new Vector2(-3.5f, -1f), material);
+            CreateDummy("Training Dummy 1", TownLayout.DummyA, material);
+            CreateDummy("Training Dummy 2", TownLayout.DummyB, material);
         }
 
         private static void CreateDummy(string name, Vector2 position, Material material)

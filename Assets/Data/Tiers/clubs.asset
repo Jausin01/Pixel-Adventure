@@ -15,3 +15,9 @@ MonoBehaviour:
   displayName: Clubs
   color: {r: 0.78, g: 0.78, b: 0.78, a: 1}
   order: 0
+  smithMaterials:
+  - item: {fileID: 11400000, guid: 9c7db9ba2eb9fdc4c9d8910024180b98, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: e120288fc24b6f946bd3df00b13048a6, type: 2}
+    amount: 2
+  smithShards: 15

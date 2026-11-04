@@ -8,12 +8,13 @@ namespace MobileRpg.EditorTools
     public static class KeyboardInputBuilder
     {
         /// <summary>Builds the keyboard input object.</summary>
-        public static void Build(WeaponHolder weapons, ActionRouter router)
+        public static void Build(ActionRouter router, GameObject player)
         {
             GameObject go = new GameObject("Keyboard Input");
             WeaponKeyboardInput keyboard = go.AddComponent<WeaponKeyboardInput>();
-            keyboard.holder = weapons;
             keyboard.router = router;
+            keyboard.thrower = player.GetComponent<SecondaryThrower>();
+            keyboard.quick = player.GetComponent<QuickItem>();
         }
     }
 }

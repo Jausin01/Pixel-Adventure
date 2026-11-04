@@ -36,16 +36,7 @@ namespace MobileRpg
 
         private void OnDepleted()
         {
-            Vector2 origin = (Vector2)transform.position + Vector2.up * spawnHeight;
-
-            for (int i = 0; i < drops.Length; i++)
-            {
-                DropEntry entry = drops[i];
-                if (entry.item == null || Random.value > entry.chance) continue;
-
-                int amount = Random.Range(entry.minAmount, entry.maxAmount + 1);
-                for (int n = 0; n < amount; n++) ItemSpawner.Spawn(entry.item, 1, origin, material);
-            }
+            DropRoller.Roll(drops, (Vector2)transform.position + Vector2.up * spawnHeight, material);
         }
     }
 }

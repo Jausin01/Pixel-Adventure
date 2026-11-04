@@ -19,5 +19,13 @@ MonoBehaviour:
   category: 1
   tier: {fileID: 11400000, guid: 5b8e21f774ecc1a4faddba4ff07a26ff, type: 2}
   maxStack: 100
+  sellValue: 0
+  dropAsSingleStack: 0
   healthRestored: 15
   energyRestored: 0
+  equipKind: 0
+  attackBonus: 0
+  defenseBonus: 0
+  maxHealthBonus: 0
+  natures: {fileID: 0}
+  swordSkinIndex: 0

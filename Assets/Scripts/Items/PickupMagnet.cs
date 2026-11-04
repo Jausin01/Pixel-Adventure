@@ -31,7 +31,8 @@ namespace MobileRpg
 
         private void Start()
         {
-            inventory = FindFirstObjectByType<Inventory>();
+            PlayerMoveInput player = FindAnyObjectByType<PlayerMoveInput>();
+            inventory = player != null ? player.GetComponent<Inventory>() : null; // not the stash, which is also an Inventory
         }
 
         private void Update()

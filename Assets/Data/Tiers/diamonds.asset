@@ -15,3 +15,9 @@ MonoBehaviour:
   displayName: Diamonds
   color: {r: 0.45, g: 0.8, b: 1, a: 1}
   order: 1
+  smithMaterials:
+  - item: {fileID: 11400000, guid: 1741160b842ea834fbc5b7e699a2ee43, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: c5500d0721ee5d14ea1fe943f062bad0, type: 2}
+    amount: 1
+  smithShards: 40

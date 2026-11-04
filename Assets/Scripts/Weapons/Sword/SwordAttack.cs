@@ -20,10 +20,10 @@ namespace MobileRpg
         public HitStop hitStop;
 
         [Header("Stats")]
-        public float damage = 10f;
-        public float hitRadius = 0.6f;
+        public float damage = 7f;
+        public float hitRadius = 0.5f;
         [Tooltip("How far from the owner a target can be to be auto-aimed.")]
-        public float aimRange = 3.5f;
+        public float aimRange = 2.2f;
         [Tooltip("Seconds without attacking before the combo restarts.")]
         public float comboResetTime = 1f;
 
@@ -32,13 +32,25 @@ namespace MobileRpg
         public float strikeTime = 0.10f;
         public float recoverTime = 0.06f;
 
+        [Tooltip("Extra pause after each strike before the next one can start. Pressing attack faster does not shorten it.")]
+        public float attackCooldown = 0.22f;
+
         private readonly HitScanner scanner = new HitScanner();
         private ComboCounter combo;
         private bool attacking;
         private bool buffered;
 
+        /// <summary>Set by skills that take over the sword. While true the sword cannot attack or be swapped out.</summary>
+        public bool Locked { get; set; }
+
         /// <inheritdoc/>
-        public bool IsBusy { get { return attacking; } }
+        public WeaponClass Class { get { return WeaponClass.Sword; } }
+
+        /// <inheritdoc/>
+        public float Damage { set { damage = value; } }
+
+        /// <inheritdoc/>
+        public bool IsBusy { get { return attacking || Locked; } }
 
         private void Awake()
         {
@@ -55,6 +67,8 @@ namespace MobileRpg
         /// <inheritdoc/>
         public void RequestAttack()
         {
+            if (Locked) return;
+
             if (attacking)
             {
                 buffered = true;
@@ -77,7 +91,7 @@ namespace MobileRpg
                 Transform target = TargetFinder.FindNearest(ownerPosition, aimRange, owner);
                 Vector2 forward = target != null ? ((Vector2)target.position - ownerPosition).normalized : facing.Vector;
                 if (forward.sqrMagnitude < 0.001f) forward = facing.Vector;
-                Vector2 center = target != null ? (Vector2)target.position : ownerPosition + forward * 1.6f;
+                Vector2 center = target != null ? (Vector2)target.position : ownerPosition + forward * 1.2f;
 
                 Vector2 start;
                 Vector2 end;
@@ -86,7 +100,7 @@ namespace MobileRpg
 
                 yield return Windup(start, direction);
                 yield return Strike(start, end, direction);
-                yield return new WaitForSeconds(recoverTime);
+                yield return new WaitForSeconds(recoverTime + attackCooldown);
 
                 combo.Complete(Time.time);
                 again = buffered;

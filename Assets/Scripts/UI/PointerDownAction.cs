@@ -12,8 +12,12 @@ namespace MobileRpg
         /// <inheritdoc/>
         public void OnPointerDown(PointerEventData eventData)
         {
+            Sfx.Play(ClickSound);
             Execute();
         }
+
+        /// <summary>Sound played on touch. Override to return null for buttons with their own sound.</summary>
+        protected virtual string ClickSound { get { return "ui_click"; } }
 
         /// <summary>The action to perform when the button is touched.</summary>
         protected abstract void Execute();

@@ -12,6 +12,9 @@ namespace MobileRpg
         [Tooltip("Maximum hit points.")]
         public float maxHealth = 100f;
 
+        /// <summary>Damage subtracted from every hit (a hit always deals at least 1).</summary>
+        public float Defense { get; set; }
+
         /// <summary>Raised after damage is applied. Arguments: amount and the world position the damage came from.</summary>
         public event Action<float, Vector2> Damaged;
 
@@ -43,6 +46,8 @@ namespace MobileRpg
         {
             if (!IsAlive) return;
 
+            if (Defense > 0f) amount = Mathf.Max(1f, amount - Defense);
+
             CurrentHealth = Mathf.Max(0f, CurrentHealth - amount);
             if (Damaged != null) Damaged(amount, source);
             if (FractionChanged != null) FractionChanged();
@@ -55,6 +60,17 @@ namespace MobileRpg
             if (!IsAlive || amount <= 0f) return;
 
             CurrentHealth = Mathf.Min(maxHealth, CurrentHealth + amount);
+            if (FractionChanged != null) FractionChanged();
+        }
+
+        /// <summary>
+        /// Changes the maximum. When it grows the current health grows with it; when it shrinks the current health is capped.
+        /// </summary>
+        public void SetMaxHealth(float value)
+        {
+            float growth = Mathf.Max(0f, value - maxHealth);
+            maxHealth = Mathf.Max(1f, value);
+            if (IsAlive) CurrentHealth = Mathf.Clamp(CurrentHealth + growth, 1f, maxHealth);
             if (FractionChanged != null) FractionChanged();
         }
 

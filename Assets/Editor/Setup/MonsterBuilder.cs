@@ -4,11 +4,12 @@ namespace MobileRpg.EditorTools
 {
     /// <summary>
     /// Creates a monster from a <see cref="MonsterSpec"/>: body, health and feedback, movement, brain, attack and health bar.
+    /// Open-world monsters respawn after a while; arena monsters do not (the wave director handles them).
     /// </summary>
     public static class MonsterBuilder
     {
         /// <summary>Builds a monster that chases <paramref name="target"/>.</summary>
-        public static GameObject Build(MonsterSpec spec, Material material, Transform target, Vector2 position)
+        public static GameObject Build(MonsterSpec spec, Material material, Transform target, Vector2 position, bool respawns = true)
         {
             GameObject monster = new GameObject(spec.name);
             monster.transform.position = position;
@@ -33,7 +34,7 @@ namespace MobileRpg.EditorTools
             DeathVisibility death = monster.AddComponent<DeathVisibility>();
             death.renderers = new[] { renderer, shadow };
             death.colliders = new Collider2D[] { collider };
-            monster.AddComponent<RespawnTimer>().delay = 10f;
+            if (respawns) monster.AddComponent<RespawnTimer>().delay = 10f;
 
             EnemyMovement movement = monster.AddComponent<EnemyMovement>();
             movement.moveSpeed = spec.moveSpeed;
@@ -63,14 +64,27 @@ namespace MobileRpg.EditorTools
 
         private static void AddAttack(GameObject monster, MonsterSpec spec, Material material)
         {
-            Sprite effect = SpriteLoader.Load(spec.effectSprite);
+            Sprite effect = SpriteLoader.Load(spec.attack == MonsterAttackKind.Boss ? spec.projectileSprite : spec.effectSprite);
 
-            if (spec.attack == MonsterAttackKind.Claws)
+            if (spec.attack == MonsterAttackKind.Boss)
+            {
+                BossAttack boss = monster.AddComponent<BossAttack>();
+                boss.moves = spec.bossMoves;
+                boss.warningCircle = SpriteLoader.Load("Effects/warn_circle");
+                boss.warningSquare = SpriteLoader.Load("Effects/warn_square");
+                boss.projectileSprite = effect;
+                boss.blastSprite = SpriteLoader.Load("Effects/explosion");
+                boss.material = material;
+                boss.damage = spec.damage;
+                boss.cooldown = 1.4f;
+            }
+            else if (spec.attack == MonsterAttackKind.Claws)
             {
                 ClawAttack claws = monster.AddComponent<ClawAttack>();
                 claws.clawSprite = effect;
                 claws.material = material;
                 claws.damage = spec.damage;
+                claws.voiceSound = Voice(spec);
             }
             else
             {
@@ -78,7 +92,16 @@ namespace MobileRpg.EditorTools
                 chomp.fangSprite = effect;
                 chomp.material = material;
                 chomp.damage = spec.damage;
+                chomp.voiceSound = Voice(spec);
             }
+        }
+
+        // Sound id of a monster's attack voice, chosen from its name.
+        private static string Voice(MonsterSpec spec)
+        {
+            if (spec.name.Contains("Bat")) return "bat";
+            if (spec.name.Contains("Rat")) return "rat";
+            return null;
         }
 
         private static SpriteRenderer CreateShadow(Transform parent, Material material)

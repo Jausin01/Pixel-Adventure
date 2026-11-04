@@ -5,7 +5,7 @@ namespace MobileRpg.EditorTools
 {
     /// <summary>
     /// Creates the menu in the top-right corner: one gear button that expands to the left into
-    /// the inventory, weapon swap and a spare button.
+    /// the inventory, equipment and main menu buttons.
     /// </summary>
     public static class MenuBuilder
     {
@@ -15,7 +15,7 @@ namespace MobileRpg.EditorTools
         private const float Spacing = 100f;
 
         /// <summary>Builds the menu.</summary>
-        public static void Build(Transform parent, WeaponHolder weapons, InventoryPanel inventory)
+        public static void Build(Transform parent, InventoryPanel inventory, InventoryPanel equipment, InventoryPanel mainMenu)
         {
             Sprite circle = SpriteLoader.Load("UI/button_circle");
             Vector2 position = new Vector2(-Margin, -Margin);
@@ -24,15 +24,15 @@ namespace MobileRpg.EditorTools
             Image bag = CreateButton("Inventory Button", parent, circle, "Hud/bag", position);
             bag.gameObject.AddComponent<OpenInventoryButton>().panel = inventory;
 
-            Image swap = CreateButton("Swap Weapon Button", parent, circle, "Bow/bow_idle", position);
-            swap.gameObject.AddComponent<SwapWeaponButton>().weapons = weapons;
+            Image equip = CreateButton("Equipment Button", parent, circle, "Swords/sword_silver_up", position);
+            equip.gameObject.AddComponent<OpenInventoryButton>().panel = equipment;
 
-            Image spare = CreateButton("Spare Button", parent, circle, "Hud/slot", position);
-            spare.color = new Color(1f, 1f, 1f, 0.45f);
+            Image main = CreateButton("Main Menu Button", parent, circle, "Hud/menu", position);
+            main.gameObject.AddComponent<OpenInventoryButton>().panel = mainMenu;
 
             Image gear = CreateButton("Menu Button", parent, circle, "Hud/gear", position);
             MenuExpander expander = gear.gameObject.AddComponent<MenuExpander>();
-            expander.entries = new[] { (RectTransform)bag.transform, (RectTransform)swap.transform, (RectTransform)spare.transform };
+            expander.entries = new[] { (RectTransform)bag.transform, (RectTransform)equip.transform, (RectTransform)main.transform };
             expander.spacing = Spacing;
             gear.gameObject.AddComponent<MenuToggleButton>().menu = expander;
         }

@@ -30,6 +30,7 @@ namespace MobileRpg
         /// <inheritdoc/>
         public void Harvest(ToolType tool, float power, Vector2 source)
         {
+            Sfx.Play(tool == ToolType.Pickaxe ? "mine" : "chop_wood");
             if (tool != requiredTool) return;
             durability.ApplyHit(power, source);
         }

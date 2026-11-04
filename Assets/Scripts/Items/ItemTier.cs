@@ -17,5 +17,12 @@ namespace MobileRpg
 
         [Tooltip("Ranking, lowest first. Used for sorting.")]
         public int order;
+
+        [Header("Smithing")]
+        [Tooltip("Materials the blacksmith needs for one upgrade step of gear in this tier (multiplied by the step).")]
+        public ItemAmount[] smithMaterials;
+
+        [Tooltip("Money the blacksmith needs for one upgrade step (multiplied by the step).")]
+        public int smithShards;
     }
 }

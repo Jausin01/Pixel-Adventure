@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fb6609637e024449b80cff231184e1, type: 3}
+  m_Name: lucky_ring
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.ItemDefinition
+  id: lucky_ring
+  displayName: Lucky Ring
+  description: A plain ring said to bring luck.
+  icon: {fileID: 21300000, guid: 6f7e6ee5b02408142b15e6b590b67786, type: 3}
+  category: 2
+  tier: {fileID: 11400000, guid: e126eaf873249e14ab08be61e58d74cb, type: 2}
+  maxStack: 100
+  sellValue: 0
+  dropAsSingleStack: 0
+  healthRestored: 0
+  energyRestored: 0
+  equipKind: 6
+  attackBonus: 1
+  defenseBonus: 0
+  maxHealthBonus: 5
+  natures: {fileID: 11400000, guid: d5dd059a55a70b34bb19297d71beb702, type: 2}
+  swordSkinIndex: 0

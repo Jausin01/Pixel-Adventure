@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7214187cb3895d4babfd40d37bb0f1f, type: 3}
+  m_Name: mortal_arena
+  m_EditorClassIdentifier: Assembly-CSharp::MobileRpg.ArenaDefinition
+  id: mortal_arena
+  displayName: Mortal Arena
+  theme: mortal
+  sceneName: Arena_mortal_arena
+  enemies: []
+  baseBudget: 0
+  budgetPerWave: 0
+  healthGrowth: 0.12
+  damageGrowth: 0.06
+  maxAlive: 3
+  spawnInterval: 0.5
+  checkpointEvery: 5
+  bossEvery: 1
+  bosses:
+  - {fileID: 8340969758503189772, guid: 524ba694db2c23744b758ef9f36bf445, type: 3}
+  - {fileID: 1328193531756869593, guid: ac43d6f22c721c347a45295d6938056a, type: 3}
+  - {fileID: 8244057516706735695, guid: d9a9d801bb2fbc94cbce7ab7a41e36be, type: 3}
+  - {fileID: 1584555679664395533, guid: b139823b4cf2e944fa7d1ab67a8fc4a9, type: 3}
+  - {fileID: 7751270395826300867, guid: 3f65ea80095237843b9a55aefe9c8c0e, type: 3}
+  clearRewards:
+  - item: {fileID: 11400000, guid: 3c939c38c06df2b47a418edc0aeadc62, type: 2}
+    minAmount: 25
+    maxAmount: 40
+    chance: 1
+  - item: {fileID: 11400000, guid: f60f3b922de5451419766b4cdb2a560c, type: 2}
+    minAmount: 1
+    maxAmount: 2
+    chance: 0.5
+  - item: {fileID: 11400000, guid: a73a0d9ddefb9bf439f7e35af3ffbb42, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.2
+  - item: {fileID: 11400000, guid: f4d56e4681b160449961fd8b18b3630f, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.8
+  - item: {fileID: 11400000, guid: 06f52a8b342cbea45b4f6b55ab5035b6, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    chance: 0.6

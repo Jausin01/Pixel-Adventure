@@ -32,10 +32,20 @@ namespace MobileRpg.EditorTools
 
             bool bottomPivot = assetPath.Contains("/Player/") || assetPath.Contains("/Trees/")
                 || assetPath.Contains("/Plants/") || assetPath.Contains("/Ores/")
-                || assetPath.Contains("/Enemies/") || assetPath.EndsWith("dummy.png");
+                || assetPath.Contains("/Enemies/") || assetPath.Contains("/Town/") || IsArenaProp() || assetPath.EndsWith("dummy.png")
+                || assetPath.EndsWith("quest_board.png") || assetPath.EndsWith("portal.png");
             if (bottomPivot) settings.spriteAlignment = (int)SpriteAlignment.BottomCenter;
 
             importer.SetTextureSettings(settings);
+        }
+
+        // Arena floor and border tiles keep the centered pivot; everything else in the arena art stands on its base.
+        private bool IsArenaProp()
+        {
+            if (!assetPath.Contains("/Arenas/")) return false;
+
+            string file = System.IO.Path.GetFileName(assetPath);
+            return !file.StartsWith("floor_") && !file.StartsWith("wall_");
         }
     }
 }

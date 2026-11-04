@@ -31,6 +31,15 @@ namespace MobileRpg.EditorTools
             item.tier = ItemTierFactory.Load(spec.tierId);
             item.healthRestored = spec.healthRestored;
             item.energyRestored = spec.energyRestored;
+            item.equipKind = spec.equipKind;
+            item.attackBonus = spec.attack;
+            item.defenseBonus = spec.defense;
+            item.maxHealthBonus = spec.maxHealth;
+            item.swordSkinIndex = spec.swordSkinIndex;
+            item.natures = spec.equipKind != EquipmentKind.None ? GearNatureCatalogBuilder.Load() : null;
+            item.sellValue = spec.sellValue;
+            item.dropAsSingleStack = spec.dropAsSingleStack;
+            if (spec.maxStack > 0) item.maxStack = spec.maxStack;
             EditorUtility.SetDirty(item);
             return item;
         }

@@ -17,18 +17,22 @@ namespace MobileRpg
         [Tooltip("Outline shown while the slot is selected.")]
         public Outline selectionOutline;
 
+        [Tooltip("Red outline shown for items collected during the current arena run.")]
+        public Outline riskOutline;
+
         /// <summary>The inventory slot currently shown, or null when this view is empty.</summary>
         public InventorySlot Slot { get; private set; }
 
         /// <summary>Shows an occupied slot.</summary>
-        public void Show(InventorySlot slot, bool selected)
+        public void Show(InventorySlot slot, bool selected, bool atRisk = false)
         {
             Slot = slot;
             icon.enabled = true;
             icon.sprite = slot.Item.icon;
-            countText.text = slot.Count > 1 ? "x" + slot.Count : string.Empty;
+            countText.text = slot.Count > 1 ? "x" + slot.Count : (slot.Gear != null && slot.Gear.Level > 0 ? "+" + slot.Gear.Level : string.Empty);
             background.color = slot.Item.tier != null ? Color.Lerp(Color.white, slot.Item.tier.color, 0.55f) : Color.white;
             selectionOutline.enabled = selected;
+            riskOutline.enabled = atRisk;
         }
 
         /// <summary>Shows an empty slot.</summary>
@@ -39,6 +43,7 @@ namespace MobileRpg
             countText.text = string.Empty;
             background.color = Color.white;
             selectionOutline.enabled = false;
+            riskOutline.enabled = false;
         }
     }
 }

@@ -18,6 +18,12 @@ namespace MobileRpg
         /// <summary>Current push velocity.</summary>
         public Vector2 Velocity { get; private set; }
 
+        /// <summary>
+        /// While true, damage taken does not push anyone. Set around a single TakeDamage call by attacks that must not
+        /// push (secondary weapons), so they cannot be used to keep enemies away.
+        /// </summary>
+        public static bool Suppressed { get; set; }
+
         private Health health;
 
         private void Awake()
@@ -43,6 +49,8 @@ namespace MobileRpg
 
         private void OnDamaged(float amount, Vector2 source)
         {
+            if (Suppressed) return;
+
             Vector2 away = (Vector2)transform.position - source;
             if (away.sqrMagnitude < 0.0001f) away = Vector2.up;
             Velocity = away.normalized * strength;

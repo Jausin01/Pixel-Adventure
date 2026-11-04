@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MobileRpg.EditorTools
 {
     /// <summary>
-    /// Creates the resource detector on the player and the router that decides between weapon and tool.
+    /// Creates the resource and interactable detectors on the player and the router that decides between weapon and tool.
     /// </summary>
     public static class ActionRouterBuilder
     {
@@ -11,12 +11,14 @@ namespace MobileRpg.EditorTools
         public static ActionRouter Build(GameObject player, WeaponHolder weapons, ToolHolder tools)
         {
             NearbyHarvestDetector detector = player.AddComponent<NearbyHarvestDetector>();
+            NearbyInteractableDetector interactions = player.AddComponent<NearbyInteractableDetector>();
 
             GameObject go = new GameObject("Action Router");
             ActionRouter router = go.AddComponent<ActionRouter>();
             router.weapons = weapons;
             router.tools = tools;
             router.detector = detector;
+            router.interactions = interactions;
             return router;
         }
     }

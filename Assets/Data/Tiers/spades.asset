@@ -15,3 +15,9 @@ MonoBehaviour:
   displayName: Spades
   color: {r: 1, g: 0.82, b: 0.3, a: 1}
   order: 3
+  smithMaterials:
+  - item: {fileID: 11400000, guid: f60f3b922de5451419766b4cdb2a560c, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: a73a0d9ddefb9bf439f7e35af3ffbb42, type: 2}
+    amount: 2
+  smithShards: 250

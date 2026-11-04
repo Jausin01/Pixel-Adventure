@@ -15,6 +15,9 @@ namespace MobileRpg
         /// <summary>Direction to walk in (unit vector, or zero to stand still). Set by the brain.</summary>
         public Vector2 Direction { get; set; }
 
+        /// <summary>Extra velocity added on top of walking and knockback (used by a boss charge).</summary>
+        public Vector2 Dash { get; set; }
+
         /// <summary>True while the enemy is asked to walk.</summary>
         public bool IsMoving { get { return Direction.sqrMagnitude > 0.01f; } }
 
@@ -32,7 +35,7 @@ namespace MobileRpg
 
         private void FixedUpdate()
         {
-            Vector2 velocity = Direction * moveSpeed;
+            Vector2 velocity = Direction * moveSpeed + Dash;
             if (knockback != null) velocity += knockback.Velocity;
             if (velocity.sqrMagnitude < 0.0001f) return;
 

@@ -39,7 +39,16 @@ namespace MobileRpg
         private bool buffered;
 
         /// <inheritdoc/>
-        public bool IsBusy { get { return attacking; } }
+        public WeaponClass Class { get { return WeaponClass.Bow; } }
+
+        /// <inheritdoc/>
+        public float Damage { set { spawner.damage = value; } }
+
+        /// <inheritdoc/>
+        public bool Locked { get; set; }
+
+        /// <inheritdoc/>
+        public bool IsBusy { get { return attacking || Locked; } }
 
         private void OnDisable()
         {
@@ -51,6 +60,8 @@ namespace MobileRpg
         /// <inheritdoc/>
         public void RequestAttack()
         {
+            if (Locked) return;
+
             if (attacking)
             {
                 buffered = true;
